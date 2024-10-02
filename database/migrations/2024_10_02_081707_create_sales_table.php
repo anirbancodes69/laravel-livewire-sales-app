@@ -13,7 +13,7 @@ return new class extends Migration {
         Schema::create('sales', function (Blueprint $table) {
             $table->id();
             $table->string('product_name');
-            $table->integer('quantity');
+            $table->decimal('quantity', 8, 2);
             $table->decimal('unit_cost', 8, 2);
             $table->decimal('profit_margin', 5, 2);
             $table->decimal('shipping_cost', 8, 2);
