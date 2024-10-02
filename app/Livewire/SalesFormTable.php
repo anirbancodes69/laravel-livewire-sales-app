@@ -11,16 +11,17 @@ class SalesFormTable extends Component
     public $unit_cost;
     public $total_cost;
     public $shipping_cost = 10; // Default shipping cost
-    public $profit_margin = 0.25; // Default profit margin for Gold Coffee
+    public $profit_margin; // Default profit margin for Gold Coffee
     public $selling_price;
 
-    public $product_name = 'Gold Coffee'; // Fixed product name for this component
+    public $product; // Fixed product name for this component
 
     public $items = [];
 
     protected $rules = [
         'quantity' => 'required|integer|min:1', // Ensure quantity is a positive integer
         'unit_cost' => 'required|numeric|min:0', // Ensure unit cost is a valid number
+        'product' => 'required|string', // Ensure unit cost is a valid number
     ];
 
     public function mount()
@@ -34,6 +35,14 @@ class SalesFormTable extends Component
         // Validate the input
         $this->validate();
 
+        if ($this->product === 'gold') {
+            $this->product = 'Gold Coffee';
+            $this->profit_margin = 0.25;
+        } else {
+            $this->product = 'Arabic Coffee';
+            $this->profit_margin = 0.15;
+        }
+
         // Calculate total cost
         $this->total_cost = $this->quantity * $this->unit_cost;
 
@@ -42,7 +51,7 @@ class SalesFormTable extends Component
 
         // Save the sale to the database
         $sale = Sale::create([
-            'product_name' => $this->product_name,
+            'product_name' => $this->product,
             'quantity' => $this->quantity,
             'unit_cost' => $this->unit_cost,
             'profit_margin' => $this->profit_margin,
@@ -60,14 +69,26 @@ class SalesFormTable extends Component
 
     private function resetForm()
     {
-        $this->reset(['quantity', 'unit_cost']);
+        $this->reset(['quantity', 'unit_cost', 'product']);
 
         $this->quantity = null;
         $this->unit_cost = null;
+        $this->product = null;
     }
 
     public function getSellingPriceProperty()
     {
+
+        if(!$this->quantity || !$this->unit_cost || !$this->product){
+            return 0;
+        }
+
+        if ($this->product === 'gold') {
+            $this->profit_margin = 0.25;
+        } else {
+            $this->profit_margin = 0.15;
+        }
+
         // Calculate total cost
         $total_cost = $this->quantity * $this->unit_cost;
 
