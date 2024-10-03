@@ -16,9 +16,9 @@ class SalesFormTable extends Component
     public $selling_price = 0;
 
     protected $rules = [
-        'product'=> 'required|string',
-        'quantity'=> 'required|numeric|min:0.01',
-        'unit_cost'=> 'required|numeric|min:0.01',
+        'product' => 'required|string',
+        'quantity' => 'required|numeric|min:0.01',
+        'unit_cost' => 'required|numeric|min:0.01',
     ];
 
     public function addSalesRecord()
@@ -66,7 +66,7 @@ class SalesFormTable extends Component
     {
 
 
-        if ($this->quantity === 0 || $this->unit_cost === 0 || $this->product === '') {
+        if (empty($this->quantity) || empty($this->product) || empty($this->unit_cost)) {
             return 0;
         }
 
