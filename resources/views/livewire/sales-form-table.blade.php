@@ -1,4 +1,4 @@
-<div class="max-w-xl mx-auto p-6 bg-white rounded-lg shadow-md">
+<div class="mx-auto p-6 bg-white rounded-lg shadow-md">
     <!-- Form -->
     <form wire:submit="addSalesRecord">
         <h2 class="text-2xl font-semibold mb-6" style="color: green">
