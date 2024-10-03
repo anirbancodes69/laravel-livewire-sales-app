@@ -8,19 +8,19 @@ use Livewire\Component;
 
 class SalesFormTable extends Component
 {
-    #[Rule('required|string')]
     public $product = '';
-
-    #[Rule('required|numeric|min:0.01')]
     public $quantity = 0;
-
-    #[Rule('required|numeric|min:0.01')]
     public $unit_cost = 0;
-
     private $total_cost = 0;
     private $shipping_cost = 10;
     private $profit_margin = 0;
     public $selling_price = 0;
+
+    protected $rules = [
+        'product'=> 'required|string',
+        'quantity'=> 'required|numeric|min:0.01',
+        'unit_cost'=> 'required|numeric|min:0.01',
+    ];
 
     public function addSalesRecord()
     {
@@ -50,10 +50,8 @@ class SalesFormTable extends Component
     private function calcSellingPrice()
     {
         if ($this->product === 'Gold Coffee') {
-            $this->product = 'Gold Coffee';
             $this->profit_margin = 0.25;
         } else {
-            $this->product = 'Arabic Coffee';
             $this->profit_margin = 0.15;
         }
 

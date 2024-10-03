@@ -1,4 +1,4 @@
-<div class="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
+<div class="max-w-xl mx-auto p-6 bg-white rounded-lg shadow-md">
     <!-- Form -->
     <form wire:submit="addSalesRecord">
         <h2 class="text-2xl font-semibold mb-6" style="color: green">
@@ -17,7 +17,7 @@
                     <option value="Arabia Coffee">Arabic Coffee</option>
                 </select>
                 @error('product')
-                <span class="alert bg-red-100 text-red-500" style="color: red">{{ $message }}</span>
+                <span class="alert bg-red-100 text-red-500" >{{ $message }}</span>
                 @enderror
             </div>
 
@@ -26,7 +26,7 @@
                 <input type="number" step="0.01" id="quantity" wire:model.lazy="quantity"
                     class="border border-gray-300 rounded p-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-400">
                 @error('quantity')
-                <span class="alert bg-red-100 text-red-500" style="color: red">{{ $message }}</span>
+                <span class="alert bg-red-100 text-red-500" >{{ $message }}</span>
                 @enderror
             </div>
 
@@ -35,7 +35,7 @@
                 <input type="number" step="0.01" id="unit_cost" wire:model.lazy="unit_cost"
                     class="border border-gray-300 rounded p-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-400">
                 @error('unit_cost')
-                <span class="alert bg-red-100 text-red-500" style="color: red">{{ $message }}</span>
+                <span class="alert bg-red-100 text-red-500" >{{ $message }}</span>
                 @enderror
             </div>
         </div>
@@ -45,14 +45,14 @@
         </span>
 
         <button
-            class="px-6 py-2 mb-4 mt-4 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
+            class="px-6 ml-2 py-2 mb-4 mt-4 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
             Record Sales
         </button>
 
     </form>
 
     <!-- Table -->
-    <h1 class="text-xl font-semibold mb-4">Previous Sales</h1>
+    <h1 class="text-xl font-semibold mb-2">Previous Sales</h1>
     <div class="overflow-y-auto max-h-screen">
         <table class="mt-6 w-full border border-gray-300 overflow-x-auto sm:w-full md:w-full lg:w-full xl:w-full">
             <thead>
