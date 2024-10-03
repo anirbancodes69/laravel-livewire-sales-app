@@ -9,3 +9,4 @@ We took the liberty of installing the following for you:
 4. **fruitcake/laravel-telescope-toolbar** - Telescope toolbar companion
 5. **laravel/pint** - To keep consistent code styles (`./vendor/bin/pint`)
 6. **larastan/larastan** - For error catching (`./vendor/bin/phpstan analyse`)
+7. **livewire/livewire** - To Build Powerful, dynamic, front-end UIs without leaving PHP.
