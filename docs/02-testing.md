@@ -1,6 +1,7 @@
 # TESTING
 
-Please use the testing features that come with Laravel, feel free to use other tools you feel relevant
+Use feature testing of livewire: 
+path: tests\Feature\Livewire\SalesFormTableTest.php
 ```
 php artisan test
 ```

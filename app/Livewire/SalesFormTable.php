@@ -3,7 +3,6 @@
 namespace App\Livewire;
 
 use App\Models\Sale;
-use Livewire\Attributes\Rule;
 use Livewire\Component;
 
 class SalesFormTable extends Component
